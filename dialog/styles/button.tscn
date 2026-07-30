@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dysfnk2w1j2d1"]
+
+[ext_resource type="FontFile" uid="uid://deaamg15srdxw" path="res://asset/font/Tiny5-Regular.ttf" id="1_m7mnd"]
+[ext_resource type="Script" uid="uid://bldt7xlfum7ov" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="3_w8cn3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifeun"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Button" type="Button" unique_id=149256464]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_m7mnd")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ifeun")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ifeun")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ifeun")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ifeun")
+script = ExtResource("3_w8cn3")
+metadata/_custom_type_script = "uid://bldt7xlfum7ov"

@@ -152,6 +152,9 @@ shape = SubResource("RectangleShape2D_ifeun")
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_pvyg5")
 animation = &"WIZARD_idle"
-frame_progress = 0.5455995
+frame_progress = 0.07020504
 
 [node name="cam" type="Camera2D" parent="." unique_id=1448666732]
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0

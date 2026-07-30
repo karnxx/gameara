@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://cjtyr2nbcapq4"]
+
+[ext_resource type="Script" uid="uid://d0ptqnbudhkyj" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="1_4jxq7"]
+[ext_resource type="Script" uid="uid://bk84r61kckpxa" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_SpeakerPortraitTextbox/speaker_portrait_textbox_layer.gd" id="1_7jt4d"]
+[ext_resource type="StyleBox" uid="uid://bo87edwl12ovg" path="res://dialog/styles/new_style_box_texture.tres" id="2_2g83f"]
+[ext_resource type="Script" uid="uid://bak74s0kcr0ao" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="2_y0h34"]
+[ext_resource type="Script" uid="uid://drhfq6rmdeuri" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_11puy"]
+[ext_resource type="FontFile" uid="uid://deaamg15srdxw" path="res://asset/font/Tiny5-Regular.ttf" id="4_j3gx8"]
+[ext_resource type="Script" uid="uid://dpv2dfiv5dhmr" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="5_sr2qw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3nmj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmg1w"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 1)
+skew = Vector2(0.073, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ifeun"]
+
+[node name="TextboxWithSpeakerPortrait" type="Control" unique_id=553311792]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_7jt4d")
+text_use_global_size = false
+text_custom_size = 26
+box_panel = "uid://bo87edwl12ovg"
+box_modulate_global_color = false
+box_modulate_custom_color = Color(1, 1, 1, 1)
+box_size = Vector2(912, 196)
+apply_overrides_on_ready = true
+
+[node name="Anchor" type="Control" parent="." unique_id=1822019399]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="Anchor" unique_id=764778976]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -456.0
+offset_top = -217.0
+offset_right = 456.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_2g83f")
+
+[node name="HBox" type="Panel" parent="Anchor/Panel" unique_id=1488539858]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_r3nmj")
+
+[node name="PortraitPanel" type="Panel" parent="Anchor/Panel/HBox" unique_id=1716337538]
+unique_name_in_owner = true
+clip_children = 1
+layout_mode = 0
+offset_left = -4988.0
+offset_top = -659.0
+offset_right = -4781.0
+offset_bottom = -463.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dmg1w")
+
+[node name="PortraitBackgroundColor" type="ColorRect" parent="Anchor/Panel/HBox/PortraitPanel" unique_id=496333537]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1220.0
+offset_top = -191.0
+offset_right = -1206.0
+offset_bottom = -185.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.231373)
+
+[node name="DialogicNode_PortraitContainer" type="Control" parent="Anchor/Panel/HBox/PortraitPanel/PortraitBackgroundColor" unique_id=2088157119]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1253.0
+offset_top = -39.0
+offset_right = -1253.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4jxq7")
+mode = 1
+container_ids = PackedStringArray("1")
+debug_character_portrait = "speaker"
+
+[node name="VBoxContainer" type="Panel" parent="Anchor/Panel/HBox" unique_id=1976439204]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 11.0
+offset_right = 912.0
+offset_bottom = 207.0
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ifeun")
+
+[node name="DialogicNode_NameLabel" type="Label" parent="Anchor/Panel/HBox/VBoxContainer" unique_id=666046683]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 19.0
+offset_top = -4.0
+offset_right = 867.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("4_j3gx8")
+theme_override_font_sizes/font_size = 18
+text = "Name"
+script = ExtResource("2_y0h34")
+
+[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/Panel/HBox/VBoxContainer" unique_id=1480525752 node_paths=PackedStringArray("textbox_root")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 16.0
+offset_right = 655.0
+offset_bottom = 175.0
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_j3gx8")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Some text"
+scroll_following = true
+visible_characters_behavior = 1
+script = ExtResource("3_11puy")
+textbox_root = NodePath("../../..")
+
+[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText" unique_id=2140525997]
+script = ExtResource("5_sr2qw")

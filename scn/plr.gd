@@ -1,47 +1,114 @@
 extends CharacterBody2D
 
-#base stats
+# =========================
+# BASE STATS
+# =========================
+
 var bspd = 230
-var bdex = 1.0
-var bstr = 1.0
-var bintl = 1.0
-var bcha = 1.0
+var bdex = 10
+var bstr = 10
+var bintl = 10
+var bcha = 10
 
-#stat mult
-var mspd := 1.0
-var mdex := 1.0
-var mstr := 1.0
-var mintl := 1.0
-var mcha := 1.0
+# =========================
+# FLAT BONUSES
+# =========================
 
-#stat
+var fspd = 0
+var fdex = 0
+var fstr = 0
+var fintl = 0
+var fcha = 0
+
+# =========================
+# MULTIPLIERS
+# =========================
+
+var mspd = 1.0
+var mdex = 1.0
+var mstr = 1.0
+var mintl = 1.0
+var mcha = 1.0
+
+# =========================
+# FINAL STATS
+# =========================
+
 var spd
 var dex
 var str
 var intl
 var cha
 
-#char creation
+# =========================
+# CHARACTER CREATION
+# =========================
+
 enum ClassType {
-	KNIGHT, WIZARD
+	KNIGHT,
+	WIZARD
+}
+
+var plr_class = ClassType.KNIGHT
+
+enum BackgroundType {
+	NOBLE,
+	SOLDIER,
+	SAGE,
+	ACOLYTE,
+	OUTLANDER,
+	CRIMINAL,
+	GUILD_ARTISAN,
+	ENTERTAINER,
 }
 
 var background
+
+enum PersonalityType {
+	BRAVE,
+	ANALYTICAL,
+	DECEITFUL,
+	COMPASSIONATE,
+	HOTHEADED,
+	DISCIPLINED,
+	CUNNING,
+	CURIOUS
+}
+
 var personality
-var plr_class = ClassType.KNIGHT
-var alignment
+
+enum AlignmentType {
+	LAWFUL_GOOD,
+	NEUTRAL_GOOD,
+	CHAOTIC_GOOD,
+	LAWFUL_NEUTRAL,
+	TRUE_NEUTRAL,
+	CHAOTIC_NEUTRAL,
+	LAWFUL_EVIL,
+	NEUTRAL_EVIL,
+	CHAOTIC_EVIL
+}
+
+var alignment 
+
+
+# =========================
+# GAME PLAYER
+# =========================
 
 var face = "l"
 
+# =========================
+# INTERACTIONS
+# =========================
 
-func _ready() -> void:
-	apply_class()
+func _ready():
+	apply_class(ClassType.KNIGHT)
 
-
-func _physics_process(delta: float) -> void:
+func _physics_process(delta):
 	movment()
-	animate()
 	facing()
+	animate()
 	move_and_slide()
 
 func facing():
@@ -50,46 +117,54 @@ func facing():
 	elif velocity.x < 0:
 		face = "l"
 
-func apply_class():
+func apply_class(classs):
+	plr_class = classs
+	fspd = 0
+	fdex = 0
+	fstr = 0
+	fintl = 0
+	fcha = 0
 	mspd = 1.0
 	mdex = 1.0
 	mstr = 1.0
 	mintl = 1.0
 	mcha = 1.0
-
 	match plr_class:
 		ClassType.KNIGHT:
-			mspd += 0.05
-			mstr += 2
-			mdex += 3
-
+			fstr += 4
+			fdex += 2
 		ClassType.WIZARD:
-			mspd -= 0.05
-			mdex += 1
-			mintl += 4
-
+			fintl += 5
+			fdex += 1
 	apply_stats()
 
-func animate():
-	if face == "r":
-		$anim.flip_h = false
-	elif face == "l":
-		$anim.flip_h = true
-	if velocity == Vector2.ZERO:
-		$anim.play(str(ClassType.keys()[plr_class]) + "_idle")
-	else:
-		$anim.play(str(ClassType.keys()[plr_class]) + "_run")
 
 func apply_stats():
-	spd = mspd * bspd
-	str = mstr + bstr
-	dex = mdex + bdex
-	intl = mintl + bintl
-	cha = mcha + bcha
+	spd = roundi((bspd + fspd) * mspd)
+	str = roundi((bstr + fstr) * mstr)
+	dex = roundi((bdex + fdex) * mdex)
+	intl = roundi((bintl + fintl) * mintl)
+	cha = roundi((bcha + fcha) * mcha)
+
+func animate():
+	$anim.flip_h = (face == "l")
+	if velocity == Vector2.ZERO:
+		$anim.play(ClassType.keys()[plr_class] + "_idle")
+	else:
+		$anim.play(ClassType.keys()[plr_class] + "_run")
+
 
 func movment():
-	var dir = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
+	var dir = Input.get_vector(
+		"ui_left",
+		"ui_right",
+		"ui_up",
+		"ui_down"
+	)
 	if dir != Vector2.ZERO:
 		velocity = dir * spd
 	else:
 		velocity = Vector2.ZERO
+
+func interact():
+	pass

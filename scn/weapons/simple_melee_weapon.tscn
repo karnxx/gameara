@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cee2m88c25hfj"]
+
+[ext_resource type="Script" uid="uid://5yfhksfbe2uk" path="res://scn/weapons/simple_melee_weapon.gd" id="1_gtvid"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tc8st"]
+
+[node name="simple_melee_weapon" type="Node2D" unique_id=5092671]
+script = ExtResource("1_gtvid")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=102537712]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=80964570]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1269352707]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_tc8st")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

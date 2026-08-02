@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://dv3ld5xlog7j0"]
+
+[ext_resource type="Texture2D" uid="uid://dc2l5p0o5ygwj" path="res://asset/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Male/Townsfolk_M_Idle_1.png" id="1_2kxju"]
+[ext_resource type="Script" uid="uid://g2x27ovwvsrb" path="res://scn/npc/npc_1.gd" id="1_jkt8e"]
+[ext_resource type="Texture2D" uid="uid://biviswk5l82ud" path="res://asset/0x72_DungeonTilesetII_v1.7/shadow.png" id="2_ftvim"]
+[ext_resource type="Texture2D" uid="uid://5ukerk3p23p6" path="res://asset/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Male/Townsfolk_M_Idle_2.png" id="2_kymni"]
+[ext_resource type="Texture2D" uid="uid://bpdpt25qeluxk" path="res://asset/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Male/Townsfolk_M_Idle_3.png" id="3_88xpf"]
+[ext_resource type="Texture2D" uid="uid://bd1nn6cypnw6t" path="res://asset/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Male/Townsfolk_M_Idle_4.png" id="4_jkt8e"]
+[ext_resource type="Texture2D" uid="uid://ocfuq7gi82q7" path="res://asset/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Male/Townsfolk_M_Walk_1.png" id="5_ftvim"]
+[ext_resource type="Texture2D" uid="uid://cftaa2mubq3jl" path="res://asset/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Male/Townsfolk_M_Walk_2.png" id="6_e7jfm"]
+[ext_resource type="Texture2D" uid="uid://cpv4eaf4lh8x1" path="res://asset/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Male/Townsfolk_M_Walk_3.png" id="7_2dc4n"]
+[ext_resource type="Texture2D" uid="uid://bmxbm8h0kik63" path="res://asset/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Male/Townsfolk_M_Walk_4.png" id="8_pyoib"]
+[ext_resource type="Texture2D" uid="uid://byjrls6nlpiye" path="res://asset/diag/interact.png" id="9_88xpf"]
+[ext_resource type="FontFile" uid="uid://deaamg15srdxw" path="res://asset/font/Tiny5-Regular.ttf" id="10_jkt8e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1x3kl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ifeun"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("1_2kxju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kymni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_88xpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jkt8e")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ftvim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_e7jfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2dc4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pyoib")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ifeun"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jkt8e"]
+radius = 26.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifeun"]
+texture = ExtResource("9_88xpf")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftvim"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="npc1" type="CharacterBody2D" unique_id=680558229]
+scale = Vector2(2, 2)
+script = ExtResource("1_jkt8e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=557168948]
+shape = SubResource("CircleShape2D_1x3kl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=405590945]
+position = Vector2(0, 2.5)
+texture = ExtResource("2_ftvim")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=74208244]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_ifeun")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.6556583
+
+[node name="Area2D" type="Area2D" parent="." unique_id=716925194]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2035423573]
+shape = SubResource("CircleShape2D_ifeun")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=2081011296]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1381616274]
+shape = SubResource("CircleShape2D_jkt8e")
+
+[node name="inter" type="Control" parent="." unique_id=706284284]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="inter" unique_id=1760729572]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 32.5
+offset_bottom = 11.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifeun")
+
+[node name="Label" type="Label" parent="inter/Panel" unique_id=1442192875]
+texture_filter = 1
+layout_mode = 0
+offset_left = 3.0
+offset_right = 22.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_jkt8e")
+theme_override_font_sizes/font_size = 8
+text = "E"
+
+[node name="Label2" type="Label" parent="inter/Panel" unique_id=886203189]
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.5
+offset_right = 27.5
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_jkt8e")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_ftvim")
+text = "TALK"
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]

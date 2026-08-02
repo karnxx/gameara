@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MeleeWeapon" format=3 uid="uid://bk0ncedqi5pw7"]
+
+[ext_resource type="Script" uid="uid://c8pnibkdt20b7" path="res://scn/resources/rune.gd" id="1_np3ue"]
+[ext_resource type="Script" uid="uid://crbwp7gp57bs5" path="res://scn/resources/melee_weapon.gd" id="2_np3ue"]
+[ext_resource type="PackedScene" uid="uid://cee2m88c25hfj" path="res://scn/weapons/simple_melee_weapon.tscn" id="2_wgu1m"]
+[ext_resource type="Texture2D" uid="uid://bw0eii5bmsl7" path="res://asset/0x72_DungeonTilesetII_v1.7/frames/weapon_rusty_sword.png" id="3_sr17p"]
+
+[resource]
+script = ExtResource("2_np3ue")
+collision_shapes = Array[Vector2]([Vector2(6, 13)])
+collision_shapes_pos = Array[Vector2]([Vector2(0, -3.5)])
+id = &"0"
+display_name = "Rusted Sword"
+sprite = ExtResource("3_sr17p")
+scene = ExtResource("2_wgu1m")
+cooldown = 0.45
+str_scaling = 1
+dex_scaling = 1
+metadata/_custom_type_script = "uid://crbwp7gp57bs5"

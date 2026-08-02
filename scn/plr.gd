@@ -10,6 +10,8 @@ var bstr = 10
 var bintl = 10
 var bcha = 10
 
+
+
 # =========================
 # FLAT BONUSES
 # =========================
@@ -19,6 +21,10 @@ var fdex = 0
 var fstr = 0
 var fintl = 0
 var fcha = 0
+
+var fcd = 0
+var fcrit = 0
+var fdmg = 0
 
 # =========================
 # MULTIPLIERS
@@ -30,6 +36,10 @@ var mstr = 1.0
 var mintl = 1.0
 var mcha = 1.0
 
+var mcd = 1.0
+var mcrit = 1.0
+var mdmg = 1.0
+
 # =========================
 # FINAL STATS
 # =========================
@@ -39,6 +49,7 @@ var dex
 var str
 var intl
 var cha
+
 
 # =========================
 # CHARACTER CREATION
@@ -97,15 +108,43 @@ var alignment
 # =========================
 
 var face = "l"
+var maxhp = 1
+var hp = 1
+var gold
 
 # =========================
 # INTERACTIONS
 # =========================
 
+enum State {
+	NORMAL,
+	DIALOGUE,
+	DEAD
+}
+
+var state = State.NORMAL
+
+var current_interactable = null
+
+# =========================
+# INVENTORY
+# =========================
+
+var eq_weapon: Weapon
+var inventory: Array[Weapon] = []
+
+
+# =========================
+# FUNC
+# =========================
+
 func _ready():
 	apply_class(ClassType.KNIGHT)
+	equip_weapon(preload("uid://bk0ncedqi5pw7"))
+	hp = maxhp
 
 func _physics_process(delta):
+	interact()
 	movment()
 	facing()
 	animate()
@@ -138,13 +177,20 @@ func apply_class(classs):
 			fdex += 1
 	apply_stats()
 
-
 func apply_stats():
 	spd = roundi((bspd + fspd) * mspd)
 	str = roundi((bstr + fstr) * mstr)
 	dex = roundi((bdex + fdex) * mdex)
 	intl = roundi((bintl + fintl) * mintl)
 	cha = roundi((bcha + fcha) * mcha)
+	maxhp = round(4 + (str + dex)/2)
+	if hp > maxhp:
+		hp = maxhp
+
+func get_dmged(dmg, who):
+	hp -= dmg
+	if hp <= 0:
+		get_tree().reload_current_scene()
 
 func animate():
 	$anim.flip_h = (face == "l")
@@ -152,7 +198,6 @@ func animate():
 		$anim.play(ClassType.keys()[plr_class] + "_idle")
 	else:
 		$anim.play(ClassType.keys()[plr_class] + "_run")
-
 
 func movment():
 	var dir = Input.get_vector(
@@ -167,4 +212,19 @@ func movment():
 		velocity = Vector2.ZERO
 
 func interact():
-	pass
+	if Input.is_action_just_pressed("interact"):
+		if current_interactable:
+			current_interactable.interact(self)
+
+func equip_weapon(weapon : Weapon):
+	for i in $pivot.get_children():
+		i.queue_free()
+	var scene = weapon.scene.instantiate()
+	scene.weapon = weapon
+	scene.plr = self
+	scene.refresh_stat()
+	$pivot.add_child(scene) 
+
+func toggleweapon():
+	for i in $pivot.get_children():
+		i.visible = !i.visible

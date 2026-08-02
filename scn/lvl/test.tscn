@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bodwmiqtydkjb" path="res://asset/Texture/path.png" id="2_gxdrc"]
 [ext_resource type="Texture2D" uid="uid://51k03pdsup4e" path="res://asset/Texture/TX Tileset Grass.png" id="3_a4516"]
 [ext_resource type="PackedScene" uid="uid://b32tj2s5aqbqc" path="res://scn/plr.tscn" id="3_gxdrc"]
+[ext_resource type="PackedScene" uid="uid://dv3ld5xlog7j0" path="res://scn/npc/npc_1.tscn" id="4_a4516"]
+[ext_resource type="PackedScene" uid="uid://dbmy1mjycswww" path="res://scn/npc/enemies/enemy_1.tscn" id="5_yfg0y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d55ie"]
 texture = ExtResource("3_a4516")
@@ -467,3 +469,8 @@ layer_1/z_index = -1
 layer_2/name = "bgnd"
 
 [node name="plr" parent="." unique_id=378305096 instance=ExtResource("3_gxdrc")]
+position = Vector2(-99, -12)
+
+[node name="npc1" parent="." unique_id=680558229 instance=ExtResource("4_a4516")]
+
+[node name="enemy_1" parent="." unique_id=1211013003 instance=ExtResource("5_yfg0y")]

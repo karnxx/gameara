@@ -1,0 +1,99 @@
+extends CharacterBody2D
+
+var spd := 60
+var str = 4
+var dex = 3
+
+var dir := Vector2.ZERO
+var max_hp
+var hp
+
+var kb = Vector2.ZERO
+
+var plr
+var isplr = false
+
+var cangetdmged = true
+
+var f = false
+
+func _ready():
+	randomize()
+	max_hp = roundi(4 + (str + dex) / 2.0)
+	hp = max_hp
+	new_dir()
+
+func _physics_process(delta: float) -> void:
+	velocity = dir * spd + kb
+	kb = kb.move_toward(Vector2.ZERO, 600 * delta)
+	chase()
+	animate()
+	move_and_slide()
+
+func chase():
+	if isplr and plr:
+		dir = (plr.global_position - global_position).normalized()
+		if spd == 60:
+			spd *= 2.5
+
+func new_dir():
+	if isplr:
+		return
+	spd = 60
+	if randf() < 0.7:
+		dir = Vector2.ZERO
+		f = randbool()
+		await get_tree().create_timer(randf_range(0.1, 0.3)).timeout
+		f = randbool()
+		await get_tree().create_timer(randf_range(0.1, 0.3)).timeout
+		f = randbool()
+		await get_tree().create_timer(randf_range(0.1, 0.3)).timeout
+		f = randbool()
+	else:
+		dir = Vector2.RIGHT.rotated(randf() * TAU)
+	$Timer.wait_time = randf_range(1.5, 2.5)
+
+func randbool():
+	if randi() % 2 == 0:
+		return false
+	else:
+		return true
+	pass
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("plr"):
+		body.get_dmged(10,self)
+
+func get_dmged(dmg, who):
+	if cangetdmged == false:
+		return
+	cangetdmged = false
+	hp -= dmg
+	var knock = (global_position - who.global_position).normalized()
+	kb += knock * 250
+	if hp <= 0:
+		queue_free()
+	await get_tree().create_timer(0.5).timeout
+	cangetdmged = true
+
+func _on_det_body_entered(body: Node2D) -> void:
+	if body.is_in_group("plr"):
+		plr = body
+		isplr = true
+
+func _on_det_body_exited(body: Node2D) -> void:
+	if body.is_in_group("plr"):
+		plr = body
+		await get_tree().create_timer(3).timeout
+		isplr = false
+
+func animate():
+	if velocity.x > 0:
+		f = false
+	elif velocity.x < 0:
+		f = true
+	$AnimatedSprite2D.flip_h = (f == true)
+	if velocity == Vector2.ZERO:
+		$AnimatedSprite2D.play("idle")
+	else:
+		$AnimatedSprite2D.play("move")

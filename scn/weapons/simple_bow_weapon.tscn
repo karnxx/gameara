@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dhu8krwackpxw"]
+
+[ext_resource type="Script" uid="uid://bp3nj6nui47ks" path="res://scn/weapons/simple_bow_weapon.gd" id="1_ycmv0"]
+[ext_resource type="Texture2D" uid="uid://bw8d6m570myo2" path="res://asset/0x72_DungeonTilesetII_v1.7/frames/weapon_bow.png" id="2_cw2jx"]
+[ext_resource type="PackedScene" uid="uid://bn3mrb4jsrolb" path="res://scn/weapons/basic_arrow.tscn" id="3_oel7h"]
+
+[node name="simple_bow_weapon" type="Node2D" unique_id=963842906]
+rotation = -1.5707964
+script = ExtResource("1_ycmv0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1738205713]
+texture = ExtResource("2_cw2jx")
+hframes = 5
+frame = 4
+
+[node name="end" type="Marker2D" parent="." unique_id=46407470]
+position = Vector2(6, 0)
+
+[node name="start" type="Marker2D" parent="." unique_id=1720827157]
+position = Vector2(-6, 0)
+
+[node name="basic_arrow" parent="start" unique_id=607568445 instance=ExtResource("3_oel7h")]
+rotation = 1.5707964

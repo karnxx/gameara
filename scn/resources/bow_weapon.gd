@@ -4,6 +4,9 @@ class_name BowWeapon
 @export_group("Bow")
 
 @export
+var range := 22
+
+@export
 var arrow_scene : PackedScene
 
 @export

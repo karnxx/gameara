@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BowWeapon" format=3 uid="uid://blvdp424hdjnv"]
+
+[ext_resource type="PackedScene" uid="uid://bn3mrb4jsrolb" path="res://scn/weapons/basic_arrow.tscn" id="1_1jgl7"]
+[ext_resource type="Script" uid="uid://c8pnibkdt20b7" path="res://scn/resources/rune.gd" id="1_vmmkr"]
+[ext_resource type="Script" uid="uid://baly0ppm2wkds" path="res://scn/resources/bow_weapon.gd" id="2_ld4nx"]
+[ext_resource type="PackedScene" uid="uid://dhu8krwackpxw" path="res://scn/weapons/simple_bow_weapon.tscn" id="3_n8gwr"]
+[ext_resource type="Texture2D" uid="uid://bw8d6m570myo2" path="res://asset/0x72_DungeonTilesetII_v1.7/frames/weapon_bow.png" id="5_n8gwr"]
+
+[resource]
+script = ExtResource("2_ld4nx")
+arrow_scene = ExtResource("1_1jgl7")
+id = &"1"
+display_name = "Wooden Bow"
+sprite = ExtResource("5_n8gwr")
+scene = ExtResource("3_n8gwr")
+str_scaling = 1
+dex_scaling = 2
+metadata/_custom_type_script = "uid://baly0ppm2wkds"

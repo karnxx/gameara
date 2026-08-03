@@ -37,6 +37,8 @@ func refresh_stat():
 func _process(delta: float) -> void:
 	if get_parent().name == "pivot" and rot:
 		get_parent().rotation = lerp_angle(get_parent().rotation, (get_global_mouse_position() - get_parent().global_position).angle() + PI / 2, 20.0 * delta)
+	var dist = get_parent().global_position.distance_to(get_global_mouse_position())
+	position = Vector2(0, -min(dist, weapon.range))
 
 func upd_dmg():
 	final_dmg = weapon.damage

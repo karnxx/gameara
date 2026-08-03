@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bn3mrb4jsrolb"]
+
+[ext_resource type="Texture2D" uid="uid://dtopj5wqsk5c5" path="res://asset/0x72_DungeonTilesetII_v1.7/frames/weapon_arrow.png" id="1_rub67"]
+[ext_resource type="Script" uid="uid://dsgt47uc5828u" path="res://scn/weapons/basic_arrow.gd" id="1_ywf03"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifeun"]
+size = Vector2(6, 20)
+
+[node name="basic_arrow" type="CharacterBody2D" unique_id=607568445]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_ywf03")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2072054032]
+position = Vector2(0, -9)
+texture = ExtResource("1_rub67")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=658875094]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_ifeun")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2121588771]
+position = Vector2(0, -9)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1841708224]
+shape = SubResource("RectangleShape2D_ifeun")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

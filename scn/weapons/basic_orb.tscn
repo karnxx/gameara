@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://d181fds70s5b8"]
+
+[ext_resource type="Script" uid="uid://du3lhsl7gxli7" path="res://scn/weapons/basic_orb.gd" id="1_me6hv"]
+[ext_resource type="Texture2D" uid="uid://yabyyxbuktlf" path="res://asset/0x72_DungeonTilesetII_v1.7/Sprite-0004.png" id="2_7jey2"]
+[ext_resource type="Texture2D" uid="uid://ck301idp0q35n" path="res://asset/0x72_DungeonTilesetII_v1.7/Sprite-0001.png" id="3_4b7w1"]
+
+[sub_resource type="Curve" id="Curve_gdbub"]
+_data = [Vector2(0, 0.3146068), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1x3kl"]
+curve = SubResource("Curve_gdbub")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ifeun"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 4.0
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_1x3kl")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ifeun"]
+
+[node name="basic_orb" type="Node2D" unique_id=1252805006]
+script = ExtResource("1_me6hv")
+
+[node name="Node" type="Node2D" parent="." unique_id=2147253753]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Node" unique_id=1582633900]
+position = Vector2(0, 1)
+amount = 20
+texture = ExtResource("2_7jey2")
+lifetime = 0.5
+explosiveness = 0.01
+randomness = 0.2
+process_material = SubResource("ParticleProcessMaterial_ifeun")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node" unique_id=1601992548]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_4b7w1")
+
+[node name="Area2D" type="Area2D" parent="Node" unique_id=944796919]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Area2D" unique_id=581886865]
+shape = SubResource("CircleShape2D_ifeun")
+
+[connection signal="body_entered" from="Node/Area2D" to="." method="_on_area_2d_body_entered"]

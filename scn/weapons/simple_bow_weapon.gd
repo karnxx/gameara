@@ -23,6 +23,7 @@ var dragdist
 var drawing = false
 var start
 var current
+var arrowlod = true
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -43,14 +44,14 @@ func _process(delta: float) -> void:
 	if get_parent().name == "pivot" and rot:
 		get_parent().rotation = lerp_angle(get_parent().rotation, (get_global_mouse_position() - get_parent().global_position).angle() + PI / 2, 20.0 * delta)
 	$Sprite2D.frame = states
-	$start/basic_arrow.position.x = -(states + 1)
-	draw()
+	$basic_arrow.position.x = lerpf(6.0, 1.0, states / 4.0)
+	if plr.state != plr.State.DIALOGUE or plr.state != plr.State.BUSY:
+		draw()
 
 func refresh_stat():
 	upd_cd()
 	upd_crit()
 	upd_dmg()
-
 
 func upd_dmg():
 	final_dmg = weapon.damage
@@ -85,6 +86,8 @@ func scaling_value(rank: Weapon.ScalingRank) -> float:
 	return 0.0
 
 func draw():
+	if !arrowlod:
+		return
 	if Input.is_action_just_pressed("lmb"):
 		drawing = true
 		rot = false
@@ -98,8 +101,17 @@ func draw():
 		ara.global_position = $start.global_position
 		ara.rotation = ($end.global_position - $start.global_position).angle() + PI/2
 		ara.dir = ($end.global_position - $start.global_position).normalized()
-		ara.spd = states * 200
-		get_tree().current_scene.add_child(ara)
+		ara.spd = clamp(states * 200,min_arrow_spd, max_arrow_spd)
+		ara.dmger = plr
+		if states != 0:
+			arrowlod = false
+			get_tree().current_scene.add_child(ara)
 		drawing = false
 		rot = true
+		$basic_arrow.visible = false
 		states = 0
+		get_tree().create_timer(cd).timeout.connect(cdover)
+
+func cdover():
+	$basic_arrow.visible = true
+	arrowlod = true

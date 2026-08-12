@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var weapon : MeleeWeapon
-@export var rot := true
+
+@export var weapon : MagicWeapon
 
 var cd 
 var crit
@@ -9,36 +9,69 @@ var final_dmg
 var swangle
 var swing_dur
 var kb
+var runes
+
+var projtex
 
 var plr
-var runes
+
+var projectiles = 0
+
+var range
+
+var nodd = false
+
+var spells = [Spell]
 
 func _ready() -> void:
 	await get_tree().process_frame
 	plr = get_parent().get_parent()
 	name = weapon.display_name
 	$Sprite2D.texture = weapon.sprite
-	for i in range(weapon.collision_shapes.size()):
-		var cola = CollisionShape2D.new()
-		cola.shape = RectangleShape2D.new()
-		cola.shape.size = weapon.collision_shapes[i]
-		cola.position = weapon.collision_shapes_pos[i]
-		$Area2D.add_child(cola)
+	projtex = weapon.projectile_tex
 	runes = weapon.runes
-	kb = weapon.knockback
+	range = weapon.a_range
+	var noda = Node2D.new()
+	noda.name = "noda"
+	plr.add_child(noda)
+	nodd = true
+	plr.spell_slots = weapon.spell_slots
 	if get_parent().name == "pivot":
 		position.y = -weapon.range
+
+func summon_proj():
+	projectiles += 1
+	var projec = weapon.projectile_scene.instantiate()
+	projec.plr = plr
+	plr.get_node("noda").add_child(projec)
+	var projs =plr.get_node("noda").get_children()
+	var i = 0
+	projec.caster = plr
+	projec.destory = self
+	projec.get_node("Node/Sprite2D").texture = projtex
+	for proj in projs:
+		proj.rotation = (TAU / projectiles) * i
+		proj.get_node("Node").position.x = range
+		i += 1
+
+func _process(delta: float) -> void:
+	if nodd:
+		plr.get_node('noda').rotation += weapon.speed * delta
+	if Input.is_action_just_pressed("lmb") and (plr.state != plr.State.DIALOGUE) and plr.state != plr.State.BUSY:
+		summon_proj()
+	if get_parent().name == "pivot":
+		get_parent().rotation = lerp_angle(get_parent().rotation, (get_global_mouse_position() - get_parent().global_position).angle() + PI / 2, 20.0 * delta)
+	var dist = get_parent().global_position.distance_to(get_global_mouse_position())
+	position = Vector2(0, -min(dist, weapon.range))
+
+func destroy_proj():
+	if projectiles != 0:
+		projectiles -= 1
 
 func refresh_stat():
 	upd_cd()
 	upd_crit()
 	upd_dmg()
-
-func _process(delta: float) -> void:
-	if get_parent().name == "pivot" and rot and (plr.state != plr.State.DIALOGUE) and plr.state != plr.State.BUSY:
-		get_parent().rotation = lerp_angle(get_parent().rotation, (get_global_mouse_position() - get_parent().global_position).angle() + PI / 2, 20.0 * delta)
-	var dist = get_parent().global_position.distance_to(get_global_mouse_position())
-	position = Vector2(0, -min(dist, weapon.range))
 
 func upd_dmg():
 	final_dmg = weapon.damage
@@ -71,7 +104,3 @@ func scaling_value(rank: Weapon.ScalingRank) -> float:
 		Weapon.ScalingRank.S: return 1.5
 
 	return 0.0
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("hittable") and (plr.state != plr.State.DIALOGUE) and plr.state != plr.State.BUSY:
-		body.get_dmged(final_dmg, plr)

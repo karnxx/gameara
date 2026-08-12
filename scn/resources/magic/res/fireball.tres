@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Spell" format=3 uid="uid://cvw6fms070gfk"]
+
+[ext_resource type="Script" uid="uid://crpdqyvxfee3" path="res://scn/resources/magic/spell.gd" id="1_7celc"]
+[ext_resource type="Script" uid="uid://4yslmtj7h08y" path="res://scn/resources/magic/res/fireball.gd" id="2_mjtgx"]
+
+[resource]
+script = ExtResource("1_7celc")
+name = "Fireball"
+splid = &"0"
+cast_type = 2
+splelement = 1
+mana_req = 1
+damage = 10.0
+cd = 0.5
+spd = 2
+spell = ExtResource("2_mjtgx")
+intl_scaling = 2
+cha_scaling = 1
+metadata/_custom_type_script = "uid://crpdqyvxfee3"

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://du2sxgn285kd1"]
+
+[ext_resource type="Script" uid="uid://cqk5qw4b2mlen" path="res://scn/weapons/simple_magic_weapon.gd" id="1_v1524"]
+
+[node name="simple_magic_weapon" type="Node2D" unique_id=1825901765]
+script = ExtResource("1_v1524")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=976627364]

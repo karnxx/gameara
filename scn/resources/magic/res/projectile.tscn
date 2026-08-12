@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bs0jrq0f1jxff"]
+
+[ext_resource type="Script" uid="uid://cv7w3i80mq615" path="res://scn/resources/magic/res/projectile.gd" id="1_uufof"]
+[ext_resource type="Texture2D" uid="uid://cor2n6g5kbdi1" path="res://asset/0x72_DungeonTilesetII_v1.7/simprojcetile.png" id="1_v0t0n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ifeun"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1x3kl"]
+radius = 3.0
+
+[sub_resource type="Curve" id="Curve_2lk0t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_li8eq"]
+curve = SubResource("Curve_2lk0t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ifeun"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.53
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_li8eq")
+
+[node name="projectile" type="CharacterBody2D" unique_id=1985375773]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_uufof")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=627517928]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=29962577]
+shape = SubResource("CircleShape2D_ifeun")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=127658867]
+shape = SubResource("CircleShape2D_1x3kl")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=372843847]
+position = Vector2(0, 2)
+amount = 10
+texture = ExtResource("1_v0t0n")
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_ifeun")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=995959542]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_v0t0n")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

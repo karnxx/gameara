@@ -48,6 +48,7 @@ func interact(plr):
 	plr.state = plr.State.DIALOGUE
 	Dialogic.start(dialogue)
 	await Dialogic.timeline_ended
+	await get_tree().create_timer(1).timeout
 	plr.state = plr.State.NORMAL
 
 func _on_area_2d_3_body_entered(body: Node2D) -> void:

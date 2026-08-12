@@ -151,6 +151,11 @@ var face = "l"
 var maxhp = 1
 var hp = 1
 
+var spells = []
+var spell_slots = 1
+var current_spell
+var spellscripts = []
+
 # =========================
 # INTERACTIONS
 # =========================
@@ -170,7 +175,7 @@ var current_interactable = null
 # INVENTORY
 # =========================
 
-var eq_weapon: Weapon
+var eq_weapon
 var inventory = []
 var gold = 0
 
@@ -180,10 +185,13 @@ var gold = 0
 
 func _ready():
 	apply_class(ClassType.KNIGHT)
-	equip_weapon(preload("uid://blvdp424hdjnv"))
+	equip_weapon(preload("uid://x4elk74nncwj"))
 	hp = maxhp
+	add_spell(preload("uid://cvw6fms070gfk"))
 
 func _physics_process(delta):
+	print(state)
+	use_spell()
 	interact()
 	movment()
 	facing()
@@ -324,8 +332,50 @@ func equip_weapon(weapon : Weapon):
 	scene.weapon = weapon
 	scene.plr = self
 	scene.refresh_stat()
-	$pivot.add_child(scene) 
+	$pivot.add_child(scene)
+	eq_weapon = scene
+	if eq_weapon is MagicWeapon:
+		spells = eq_weapon.spells
+		spellscripts = []
+		for i in get_children():
+			if i.is_in_group("spell"):
+				i.queue_free()
+		for spell in spells:
+			var spl : Node = spell.spell.new()
+			spl.add_to_group("spell")
+			add_child(spl)
+			spl.spelle = spell
+			spellscripts.append(spl)
 
 func toggleweapon():
 	for i in $pivot.get_children():
 		i.visible = !i.visible
+
+func add_spell(spell : Spell):
+	if eq_weapon.weapon is MagicWeapon:
+		if spells.size() >= spell_slots:
+			return
+		var spl : Node = spell.spell.new()
+		spells.append(spell)
+		spl.add_to_group("spell")
+		add_child(spl)
+		spl.spelle = spell
+		spellscripts.append(spl)
+		current_spell = spell
+
+func sel_spell(i):
+	current_spell = spells[i]
+
+func use_spell():
+	if Input.is_action_just_pressed("spell"):
+		if current_spell == null:
+			return
+		var i = spells.find(current_spell)
+		if i == -1:	
+			print(spells)
+			return
+		print("spell index: ", i)
+		print("spells: ", spells.size())
+		print("scripts: ", spellscripts.size())
+		var spell_script = spellscripts[i]
+		spell_script.cast(self)

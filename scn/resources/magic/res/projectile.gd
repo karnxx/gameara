@@ -1,18 +1,12 @@
 extends CharacterBody2D
 
-
-var dir = Vector2.RIGHT
-var spd = 500
-var dmg = 10
-var life
-var kb
-var dmger
+var dir
+var spellee
 
 func _physics_process(delta: float) -> void:
-	velocity = dir * spd
+	velocity = dir * spellee.projspd
 	move_and_slide()
-
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("hittable"):
-		body.get_dmged(dmg, dmger)
+		spellee.hit(body)

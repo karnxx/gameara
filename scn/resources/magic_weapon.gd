@@ -7,13 +7,19 @@ class_name MagicWeapon
 var projectile_scene : PackedScene
 
 @export
+var projectile_tex : Texture2D
+
+@export
 var mana_cost := 10
 
 @export
-var cast_time := 0.0
+var a_range := 600.0
 
 @export
-var projectile_speed := 600.0
+var range := 22
 
 @export
-var projectile_lifetime := 3.0
+var speed := 600.0
+
+@export
+var spell_slots := 2

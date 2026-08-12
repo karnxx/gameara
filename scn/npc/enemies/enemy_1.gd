@@ -17,6 +17,8 @@ var cangetdmged = true
 
 var f = false
 
+@export_range(0,10, 1) var gold = 5
+
 func _ready():
 	randomize()
 	max_hp = roundi(4 + (str + dex) / 2.0)
@@ -72,9 +74,18 @@ func get_dmged(dmg, who):
 	var knock = (global_position - who.global_position).normalized()
 	kb += knock * 250
 	if hp <= 0:
-		queue_free()
+		death()
 	await get_tree().create_timer(0.5).timeout
 	cangetdmged = true
+
+func death():
+	for i in range(gold):
+		var coin = preload("res://scn/resources/coin.tscn").instantiate()
+		coin.global_position = Vector2(randi_range(global_position.x - 10, global_position.x + 10),randi_range(global_position.y - 10, global_position.y + 10))
+		coin.goldval = 1
+		get_tree().current_scene.get_parent().call_deferred("add_child", coin)
+	await get_tree().create_timer(0.01).timeout
+	queue_free()
 
 func _on_det_body_entered(body: Node2D) -> void:
 	if body.is_in_group("plr"):

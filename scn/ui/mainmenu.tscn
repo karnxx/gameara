@@ -70,7 +70,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_bmmkb")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bmmkb")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_bmmkb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bmmkb")
-text = "CREDITS"
+text = "CONTROLS"
 alignment = 2
 script = ExtResource("4_fsnsr")
 

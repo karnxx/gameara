@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	animate()
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
-	if body.is_in_group('plr'):
+	if body.is_in_group('plr') and GameManager.enemies == 0:
 		plr = true
 		$inter.visible = true
 
@@ -42,16 +42,19 @@ func animate():
 		$AnimatedSprite2D.play("walk")
 
 func _on_area_2d_2_body_exited(body: Node2D) -> void:
-	if body.is_in_group('plr'):
+	if body.is_in_group('plr') and GameManager.enemies == 0:
 		plr = false
 		$inter.visible = false
 
 func interact(plr):
+	if GameManager.enemies != 0:
+		return
 	plr.state = plr.State.DIALOGUE
 	Dialogic.start(dialogue)
 	await Dialogic.timeline_ended
 	await get_tree().create_timer(1).timeout
 	plr.state = plr.State.NORMAL
+	dialogue = ""
 
 func _on_area_2d_3_body_entered(body: Node2D) -> void:
 	if body.is_in_group('plr'):

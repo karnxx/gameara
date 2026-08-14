@@ -95,6 +95,9 @@ func get_dmged(dmg, who):
 	hp -= dmg
 	var knock = (global_position - who.global_position).normalized()
 	kb += knock * 250
+	var twen = create_tween()
+	twen.tween_property(self, "modulate", Color.DARK_RED, 0.1)
+	twen.tween_property(self, "modulate", Color.WHITE, 0.1)
 	if hp <= 0:
 		death()
 	await get_tree().create_timer(0.5).timeout
@@ -106,6 +109,7 @@ func death():
 		coin.global_position = Vector2(randi_range(global_position.x - 10, global_position.x + 10),randi_range(global_position.y - 10, global_position.y + 10))
 		coin.goldval = 1
 		get_tree().current_scene.get_parent().call_deferred("add_child", coin)
+	GameManager.enemies -= 1
 	await get_tree().create_timer(0.01).timeout
 	queue_free()
 

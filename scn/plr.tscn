@@ -8,12 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cqpmwjqbiju3t" path="res://asset/0x72_DungeonTilesetII_v1.7/bacdks.png" id="6_cn2q6"]
 [ext_resource type="Texture2D" uid="uid://4qjxcfsfoek0" path="res://asset/0x72_DungeonTilesetII_v1.7/progress.png" id="7_nrla3"]
 [ext_resource type="Texture2D" uid="uid://dfjcbpmjqbihs" path="res://asset/0x72_DungeonTilesetII_v1.7/clip.png" id="8_cn2q6"]
+[ext_resource type="Script" uid="uid://bgwh18tu1xtt4" path="res://scn/texture_progress_bar.gd" id="8_efd7k"]
 [ext_resource type="Script" uid="uid://cg3cgowggyyke" path="res://scn/anim.gd" id="9_nrla3"]
 [ext_resource type="Texture2D" uid="uid://7rqd8f0oxmm1" path="res://asset/0x72_DungeonTilesetII_v1.7/manabar6.png" id="10_gfkxb"]
 [ext_resource type="Texture2D" uid="uid://cxuk2cvo74mdo" path="res://asset/0x72_DungeonTilesetII_v1.7/manaabar6.png" id="11_efd7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifeun"]
-size = Vector2(16, 20)
+size = Vector2(10, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c00y3"]
 atlas = ExtResource("2_a8d33")
@@ -159,6 +160,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_us2j1")
 
 [node name="col" type="CollisionShape2D" parent="." unique_id=1569256238]
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_ifeun")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1819755445]
@@ -201,6 +203,7 @@ texture_under = ExtResource("5_cc42e")
 texture_over = ExtResource("6_cn2q6")
 texture_progress = ExtResource("7_nrla3")
 texture_progress_offset = Vector2(49, 17)
+script = ExtResource("8_efd7k")
 
 [node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer" unique_id=2002675920]
 clip_children = 2
@@ -224,6 +227,7 @@ offset_bottom = 87.0
 value = 100.0
 texture_under = ExtResource("10_gfkxb")
 texture_progress = ExtResource("11_efd7k")
+script = ExtResource("8_efd7k")
 
 [connection signal="area_entered" from="interactable" to="interactable" method="_on_area_entered"]
 [connection signal="area_exited" from="interactable" to="interactable" method="_on_area_exited"]

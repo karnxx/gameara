@@ -319,6 +319,7 @@ func apply_stats():
 
 func get_dmged(dmg, who):
 	hp -= dmg
+	$CanvasLayer/TextureProgressBar.set_target(hp)
 	if hp <= 0:
 		get_tree().reload_current_scene()
 
@@ -395,12 +396,11 @@ func use_spell():
 		if i == -1:
 			print(spells)
 			return
-		mana -= current_spell.weapon.mana_req
+		$CanvasLayer/TextureProgressBar2.set_target(mana)
 		var spell_script = spellscripts[i]
+		mana -= spell_script.manacost
 		spell_script.cast(self)
 
 func _process(delta: float) -> void:
 	$CanvasLayer/TextureProgressBar.max_value = maxhp
-	$CanvasLayer/TextureProgressBar.value = hp
 	$CanvasLayer/TextureProgressBar2.max_value = maxmana
-	$CanvasLayer/TextureProgressBar2.value = mana

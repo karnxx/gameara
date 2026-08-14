@@ -29,7 +29,14 @@ offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("1_dreoj")
 theme_override_font_sizes/font_size = 30
 text = "CREDITS
-karnx."
+karnx.
+
+WASD TO MOVE
+E TO INTERACT
+RMB TO FIRE SPELL
+FOR SWORDS, JUST SLASH USING MOUSE
+FOR BOWS HOLD MOUSE TO DRAG AND LET GO TO FIRE
+FOR SPELLS, LMB SPAWNS ORBS THAT ROTATE AND DAMAGE"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="." unique_id=716541997]

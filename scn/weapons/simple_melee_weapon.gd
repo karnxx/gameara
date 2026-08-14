@@ -13,6 +13,7 @@ var kb
 var plr
 var runes
 
+var last_rot := 0.0
 func _ready() -> void:
 	await get_tree().process_frame
 	plr = get_parent().get_parent()
@@ -35,9 +36,14 @@ func refresh_stat():
 	upd_dmg()
 
 func _process(delta: float) -> void:
-	if get_parent().name == "pivot" and rot and (plr.state != plr.State.DIALOGUE) and plr.state != plr.State.BUSY:
-		get_parent().rotation = lerp_angle(get_parent().rotation, (get_global_mouse_position() - get_parent().global_position).angle() + PI / 2, 20.0 * delta)
-	var dist = get_parent().global_position.distance_to(get_global_mouse_position())
+	var pivot = get_parent()
+	var rot_speed = abs(angle_difference(pivot.rotation, last_rot)) / delta
+	last_rot = pivot.rotation
+	$GPUParticles2D.emitting = rot_speed > 2.0
+	$GPUParticles2D.amount_ratio = clamp(rot_speed / 15.0, 0.0, 1.0) * 5
+	if pivot.name == "pivot" and rot and plr.state != plr.State.DIALOGUE and plr.state != plr.State.BUSY:
+		pivot.rotation = lerp_angle(pivot.rotation, (get_global_mouse_position() - pivot.global_position).angle() + PI / 2, 20.0 * delta)
+	var dist = pivot.global_position.distance_to(get_global_mouse_position())
 	position = Vector2(0, -min(dist, weapon.range))
 
 func upd_dmg():
@@ -74,5 +80,4 @@ func scaling_value(rank: Weapon.ScalingRank) -> float:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("hittable") and (plr.state != plr.State.DIALOGUE) and plr.state != plr.State.BUSY:
-		
 		body.get_dmged(final_dmg, plr)

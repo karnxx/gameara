@@ -7,6 +7,8 @@ var weapon
 
 var plr
 
+var enemies = 3
+
 func plrstantiate(lpar):
 	plr = lpar
 

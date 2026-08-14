@@ -72,6 +72,7 @@ scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_jkt8e")
+dialogue = "res://dialog/timelines/npc_intro2.dtl"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=557168948]
 shape = SubResource("CircleShape2D_1x3kl")

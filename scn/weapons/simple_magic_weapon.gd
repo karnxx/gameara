@@ -41,6 +41,7 @@ func _ready() -> void:
 
 func summon_proj():
 	plr.mana -= weapon.mana_cost
+	plr.get_node('CanvasLayer/TextureProgressBar2').set_target(plr.mana)
 	projectiles += 1
 	var projec = weapon.projectile_scene.instantiate()
 	projec.plr = plr

@@ -86,7 +86,7 @@ func scaling_value(rank: Weapon.ScalingRank) -> float:
 	return 0.0
 
 func draw():
-	if !arrowlod:
+	if !arrowlod or plr.state == plr.State.DIALOGUE:
 		return
 	if Input.is_action_just_pressed("lmb"):
 		drawing = true

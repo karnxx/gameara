@@ -40,6 +40,7 @@ func _ready() -> void:
 		position.y = -weapon.range
 
 func summon_proj():
+	plr.mana -= weapon.mana_cost
 	projectiles += 1
 	var projec = weapon.projectile_scene.instantiate()
 	projec.plr = plr

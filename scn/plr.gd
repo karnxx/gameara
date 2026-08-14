@@ -148,6 +148,8 @@ var factions = {
 var face = "l"
 var maxhp = 1
 var hp = 1
+var maxmana= 0
+var mana = 0
 
 var spells = []
 var spell_slots = 1
@@ -182,11 +184,29 @@ var gold = 0
 # =========================
 
 func _ready():
-	apply_class(ClassType.KNIGHT)
-	apply_bg(BackgroundType.SOLDIER)
-	equip_weapon(preload("uid://x4elk74nncwj"))
+	GameManager.plrstantiate(self)
+	GameManager.apply_to_plr()
 	hp = maxhp
-	add_spell(preload("uid://cvw6fms070gfk"))
+	mana = maxmana
+	Dialogic.timeline_started.connect(start_diag)
+	Dialogic.timeline_ended.connect(end_diag)
+	Dialogic.signal_event.connect(sigevent)
+
+func sigevent(args):
+	if args is Dictionary:
+		if args.get("type") == "camera":
+			match args.get("target"):
+				"edrin":
+					create_tween().tween_property($cam, "global_position", get_node("../EdrinVale").global_position, 1.0).set_trans(Tween.TRANS_EXPO)
+				"self":
+					create_tween().tween_property($cam, "global_position", global_position, 1.0).set_trans(Tween.TRANS_EXPO)
+
+func start_diag():
+	state = State.DIALOGUE
+	velocity = Vector2.ZERO
+
+func end_diag():
+	state = State.NORMAL
 
 func _physics_process(delta):
 	use_spell()
@@ -291,8 +311,11 @@ func apply_stats():
 	intl = roundi((bintl + fintl) * mintl)
 	cha = roundi((bcha + fcha) * mcha)
 	maxhp = round(4 + (str + dex)/2)
+	maxmana = round(10 + (intl + dex)/2)
 	if hp > maxhp:
 		hp = maxhp
+	if mana > maxmana:
+		mana = maxmana
 
 func get_dmged(dmg, who):
 	hp -= dmg
@@ -323,7 +346,7 @@ func interact():
 		if current_interactable:
 			current_interactable.interact(self)
 
-func equip_weapon(weapon : Weapon):
+func equip_weapon(weapon : Weapon):	
 	for i in $pivot.get_children():
 		i.queue_free()
 	var scene = weapon.scene.instantiate()
@@ -369,11 +392,15 @@ func use_spell():
 		if current_spell == null:
 			return
 		var i = spells.find(current_spell)
-		if i == -1:	
+		if i == -1:
 			print(spells)
 			return
-		print("spell index: ", i)
-		print("spells: ", spells.size())
-		print("scripts: ", spellscripts.size())
+		mana -= current_spell.weapon.mana_req
 		var spell_script = spellscripts[i]
 		spell_script.cast(self)
+
+func _process(delta: float) -> void:
+	$CanvasLayer/TextureProgressBar.max_value = maxhp
+	$CanvasLayer/TextureProgressBar.value = hp
+	$CanvasLayer/TextureProgressBar2.max_value = maxmana
+	$CanvasLayer/TextureProgressBar2.value = mana

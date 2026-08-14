@@ -5,14 +5,25 @@
 &"color": Color(1, 1, 1, 1),
 &"custom_info": {
 "prefix": "",
-"sound_mood_default": "",
-"sound_moods": {},
+"sound_mood_default": "normal",
+"sound_moods": {
+"normal": {
+"mode": 0,
+"name": "normal",
+"pitch_base": 0.0,
+"pitch_variance": -2.0,
+"skip_characters": 0.0,
+"sound_path": "res://asset/soundshelfstudio-sci-fi-system-blip-525671_1yLqwXiF.mp3",
+"volume_base": 1.4000000000000001,
+"volume_variance": 0.0
+}
+},
 "style": "tyle",
 "suffix": ""
 },
 &"default_portrait": "",
 &"description": "",
-&"display_name": "TESTERDUDEIA",
+&"display_name": "Edrin Vale",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),

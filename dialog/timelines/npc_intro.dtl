@@ -1,0 +1,6 @@
+join character center
+do 
+[signal arg_type="dict" arg="{"target":"edrin","type":"camera"}"]
+character: OWW!!! AAHHHHHHHHHH!!!!!
+character: HELPPPP!! ANYBODYYYY!!!!! PLEASEEEE!!
+[signal arg_type="dict" arg="{"target":"self","type":"camera"}"]

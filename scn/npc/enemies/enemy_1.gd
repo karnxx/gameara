@@ -15,31 +15,54 @@ var isplr = false
 
 var cangetdmged = true
 
-var f = false
+@export var f = false
+
+@export var cutscene_mode = false
 
 @export_range(0,10, 1) var gold = 5
 
+@export var hpmod :int = 1
+
 func _ready():
 	randomize()
-	max_hp = roundi(4 + (str + dex) / 2.0)
+	max_hp = roundi(4 + (str + dex) / 2.0) * 2
 	hp = max_hp
 	new_dir()
+	Dialogic.timeline_started.connect(start_diag)
+	Dialogic.timeline_ended.connect(end_diag)
+	Dialogic.signal_event.connect(sigevent)
+
+func sigevent(args):
+	pass
+
+func start_diag():
+	cutscene_mode = true
+
+func end_diag():
+	cutscene_mode = false
 
 func _physics_process(delta: float) -> void:
 	velocity = dir * spd + kb
 	kb = kb.move_toward(Vector2.ZERO, 600 * delta)
+	if cutscene_mode:
+		velocity = Vector2.ZERO
 	chase()
 	animate()
 	move_and_slide()
 
 func chase():
-	if isplr and plr:
+	if isplr and plr and !cutscene_mode:
 		dir = (plr.global_position - global_position).normalized()
 		if spd == 60:
 			spd *= 2.5
 
+func move_to(dir: Vector2, dis: float):
+	velocity = dir.normalized() * 60.0
+	await get_tree().create_timer(dis / 60.0).timeout
+	velocity = Vector2.ZERO
+
 func new_dir():
-	if isplr:
+	if isplr or cutscene_mode:
 		return
 	spd = 60
 	if randf() < 0.7:
@@ -60,11 +83,10 @@ func randbool():
 		return false
 	else:
 		return true
-	pass
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("plr"):
-		body.get_dmged(10,self)
+		body.get_dmged(round((str+dex)/randi_range(2,4)),self)
 
 func get_dmged(dmg, who):
 	if cangetdmged == false:
@@ -86,6 +108,16 @@ func death():
 		get_tree().current_scene.get_parent().call_deferred("add_child", coin)
 	await get_tree().create_timer(0.01).timeout
 	queue_free()
+
+func jump():
+	var tween = create_tween()
+	var gp = global_position
+	tween.tween_property(self, "global_position", gp + Vector2(0,10), 0.1).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	tween.tween_property(self, "global_position", gp, 0.1).set_ease(Tween.EASE_OUT)
+
+func look(dir):
+	f = dir
 
 func _on_det_body_entered(body: Node2D) -> void:
 	if body.is_in_group("plr"):

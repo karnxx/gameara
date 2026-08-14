@@ -9,8 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://7qjbgccmiyss" path="res://asset/0x72_DungeonTilesetII_v1.7/classpanel.png" id="7_5hvku"]
 [ext_resource type="FontFile" uid="uid://cvr7u6avwprnd" path="res://asset/font/Jersey10-Regular.ttf" id="8_p8v7j"]
 [ext_resource type="Texture2D" uid="uid://botfgu6burgn1" path="res://asset/0x72_DungeonTilesetII_v1.7/frames/weapon_regular_sword.png" id="9_q6bfl"]
+[ext_resource type="Script" uid="uid://clk50cdqat07k" path="res://scn/ui/sword.gd" id="10_6vu4c"]
 [ext_resource type="Texture2D" uid="uid://cavsahe70tfdd" path="res://asset/0x72_DungeonTilesetII_v1.7/frames/weapon_bow_2.png" id="10_anjyn"]
 [ext_resource type="Texture2D" uid="uid://codq22h3tyv86" path="res://asset/0x72_DungeonTilesetII_v1.7/woodenwand.png" id="11_anjyn"]
+[ext_resource type="Script" uid="uid://bauliapswo5li" path="res://scn/ui/bow.gd" id="12_eoheo"]
+[ext_resource type="Script" uid="uid://cqvr17drfekjt" path="res://scn/ui/wand.gd" id="14_gc2eg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c00y3"]
 atlas = ExtResource("1_qnnuj")
@@ -374,6 +377,7 @@ texture_hover = ExtResource("9_q6bfl")
 texture_disabled = ExtResource("9_q6bfl")
 texture_focused = ExtResource("9_q6bfl")
 stretch_mode = 0
+script = ExtResource("10_6vu4c")
 
 [node name="bow" type="TextureButton" parent="knight3" unique_id=91705833]
 layout_mode = 1
@@ -394,6 +398,7 @@ texture_hover = ExtResource("10_anjyn")
 texture_disabled = ExtResource("10_anjyn")
 texture_focused = ExtResource("10_anjyn")
 stretch_mode = 0
+script = ExtResource("12_eoheo")
 
 [node name="wizard3" type="Panel" parent="." unique_id=792834454]
 layout_mode = 1
@@ -511,6 +516,7 @@ texture_hover = ExtResource("11_anjyn")
 texture_disabled = ExtResource("11_anjyn")
 texture_focused = ExtResource("11_anjyn")
 stretch_mode = 0
+script = ExtResource("14_gc2eg")
 
 [connection signal="mouse_entered" from="knight" to="knight" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="knight" to="knight" method="_on_mouse_exited"]

@@ -4,6 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://d1byiiw7vg3e" path="res://asset/0x72_DungeonTilesetII_v1.7/plrsprites.png" id="2_a8d33"]
 [ext_resource type="Texture2D" uid="uid://biviswk5l82ud" path="res://asset/0x72_DungeonTilesetII_v1.7/shadow.png" id="2_ab04o"]
 [ext_resource type="Script" uid="uid://cbhqrboyal3ux" path="res://scn/interactable.gd" id="3_qtclr"]
+[ext_resource type="Texture2D" uid="uid://csclkco5kl22j" path="res://asset/0x72_DungeonTilesetII_v1.7/backs.png" id="5_cc42e"]
+[ext_resource type="Texture2D" uid="uid://cqpmwjqbiju3t" path="res://asset/0x72_DungeonTilesetII_v1.7/bacdks.png" id="6_cn2q6"]
+[ext_resource type="Texture2D" uid="uid://4qjxcfsfoek0" path="res://asset/0x72_DungeonTilesetII_v1.7/progress.png" id="7_nrla3"]
+[ext_resource type="Texture2D" uid="uid://dfjcbpmjqbihs" path="res://asset/0x72_DungeonTilesetII_v1.7/clip.png" id="8_cn2q6"]
+[ext_resource type="Script" uid="uid://cg3cgowggyyke" path="res://scn/anim.gd" id="9_nrla3"]
+[ext_resource type="Texture2D" uid="uid://7rqd8f0oxmm1" path="res://asset/0x72_DungeonTilesetII_v1.7/manabar6.png" id="10_gfkxb"]
+[ext_resource type="Texture2D" uid="uid://cxuk2cvo74mdo" path="res://asset/0x72_DungeonTilesetII_v1.7/manaabar6.png" id="11_efd7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifeun"]
 size = Vector2(16, 20)
@@ -165,6 +172,7 @@ sprite_frames = SubResource("SpriteFrames_pvyg5")
 animation = &"KNIGHT_idle"
 
 [node name="cam" type="Camera2D" parent="." unique_id=1448666732]
+zoom = Vector2(1.5, 1.5)
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
@@ -178,6 +186,44 @@ script = ExtResource("3_qtclr")
 shape = SubResource("CircleShape2D_ifeun")
 
 [node name="pivot" type="Node2D" parent="." unique_id=1759358432]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1214892397]
+scale = Vector2(2.1, 2)
+transform = Transform2D(2.1, 0, 0, 2, 0, 0)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=665741571]
+offset_left = 7.619048
+offset_top = 9.5
+offset_right = 176.11905
+offset_bottom = 74.5
+value = 100.0
+texture_under = ExtResource("5_cc42e")
+texture_over = ExtResource("6_cn2q6")
+texture_progress = ExtResource("7_nrla3")
+texture_progress_offset = Vector2(49, 17)
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer" unique_id=2002675920]
+clip_children = 2
+position = Vector2(32, 34)
+texture = ExtResource("8_cn2q6")
+
+[node name="anim" type="AnimatedSprite2D" parent="CanvasLayer/Sprite2D2" unique_id=924869947]
+modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
+clip_children = 2
+position = Vector2(1, -10.000001)
+scale = Vector2(2.2, 2.2)
+sprite_frames = SubResource("SpriteFrames_pvyg5")
+animation = &"KNIGHT_idle"
+script = ExtResource("9_nrla3")
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="CanvasLayer" unique_id=1385857425]
+offset_left = 75.714294
+offset_top = 47.0
+offset_right = 125.714294
+offset_bottom = 87.0
+value = 100.0
+texture_under = ExtResource("10_gfkxb")
+texture_progress = ExtResource("11_efd7k")
 
 [connection signal="area_entered" from="interactable" to="interactable" method="_on_area_entered"]
 [connection signal="area_exited" from="interactable" to="interactable" method="_on_area_exited"]

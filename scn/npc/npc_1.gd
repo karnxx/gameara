@@ -8,6 +8,8 @@ var plr = false
 
 var player 
 
+var cutscene_mode = false
+
 var lokaplr = false
 
 var facingleft = false
@@ -55,6 +57,13 @@ func _on_area_2d_3_body_entered(body: Node2D) -> void:
 	if body.is_in_group('plr'):
 		player = body
 		lokaplr = true
+
+func jump():
+	var tween = create_tween()
+	var gp = global_position
+	tween.tween_property(self, "global_position", gp + Vector2(0,10), 0.1).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	tween.tween_property(self, "global_position", gp, 0.1).set_ease(Tween.EASE_OUT)
 
 func _on_area_2d_3_body_exited(body: Node2D) -> void:
 	if body.is_in_group('plr'):

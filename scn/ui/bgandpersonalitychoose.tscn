@@ -1,0 +1,641 @@
+[gd_scene format=3 uid="uid://ukq8nukhoksl"]
+
+[ext_resource type="Texture2D" uid="uid://7qjbgccmiyss" path="res://asset/0x72_DungeonTilesetII_v1.7/classpanel.png" id="1_ojk6x"]
+[ext_resource type="FontFile" uid="uid://cvr7u6avwprnd" path="res://asset/font/Jersey10-Regular.ttf" id="2_f6gj6"]
+[ext_resource type="Script" uid="uid://dj7xegxfcrjy2" path="res://scn/ui/bttons.gd" id="3_0y03y"]
+[ext_resource type="Texture2D" uid="uid://daxmbihjwm4ub" path="res://asset/0x72_DungeonTilesetII_v1.7/choices1.png" id="3_qnoor"]
+[ext_resource type="FontFile" uid="uid://deaamg15srdxw" path="res://asset/font/Tiny5-Regular.ttf" id="4_0y03y"]
+[ext_resource type="Texture2D" uid="uid://d1byiiw7vg3e" path="res://asset/0x72_DungeonTilesetII_v1.7/plrsprites.png" id="5_f6gj6"]
+[ext_resource type="Script" uid="uid://beirou5khjmb3" path="res://scn/ui/bttns_2.gd" id="6_c0onv"]
+[ext_resource type="Script" uid="uid://b7yioca8jrhld" path="res://scn/ui/anim.gd" id="6_qnoor"]
+[ext_resource type="FontFile" uid="uid://culuanay3mbgs" path="res://asset/font/PixelifySans-VariableFont_wght.ttf" id="9_p8ura"]
+[ext_resource type="Texture2D" uid="uid://chkpw1opngyd2" path="res://asset/0x72_DungeonTilesetII_v1.7/et.png" id="10_e2w6v"]
+[ext_resource type="Script" uid="uid://ndyt02hgyau1" path="res://scn/ui/dda.gd" id="11_e2w6v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifeun"]
+texture = ExtResource("1_ojk6x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1x3kl"]
+content_margin_bottom = 50.0
+texture = ExtResource("3_qnoor")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c00y3"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rujku"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(16, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f731k"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvna0"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(48, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbtrw"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(64, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtclr"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(80, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab04o"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(96, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acseb"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(112, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1grll"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(0, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc42e"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(16, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn2q6"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(32, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrla3"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(48, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkjqq"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(112, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfkxb"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(96, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efd7k"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(80, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd8k8"]
+atlas = ExtResource("5_f6gj6")
+region = Rect2(64, 160, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnoor"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_c00y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rujku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f731k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvna0")
+}],
+"loop": 1,
+"name": &"KNIGHT_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbtrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtclr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab04o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acseb")
+}],
+"loop": 1,
+"name": &"KNIGHT_run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_1grll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc42e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn2q6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrla3")
+}],
+"loop": 1,
+"name": &"WIZARD_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkjqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfkxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efd7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd8k8")
+}],
+"loop": 1,
+"name": &"WIZARD_run",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r3nmj"]
+texture = ExtResource("10_e2w6v")
+
+[node name="bgandpersonalitychoose" type="Control" unique_id=426048633]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=844165085]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="bg" type="Panel" parent="." unique_id=2120302535]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 374.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifeun")
+
+[node name="Label" type="Label" parent="bg" unique_id=1516106555]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_top = 6.0
+offset_right = 56.5
+offset_bottom = 29.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_f6gj6")
+theme_override_font_sizes/font_size = 48
+text = "BACKGROUND"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="bg" unique_id=787889277]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 52.0
+offset_right = 20.0
+offset_bottom = 57.0
+grow_horizontal = 2
+
+[node name="bttons" type="VBoxContainer" parent="bg" unique_id=551930050]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -255.0
+offset_right = 171.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_0y03y")
+
+[node name="Button" type="Button" parent="bg/bttons" unique_id=1935007679]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label" type="Label" parent="bg/bttons/Button" unique_id=435282304]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "NOBLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="bg/bttons" unique_id=786159276]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label2" type="Label" parent="bg/bttons/Button2" unique_id=1084858205]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "SOLDIER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="bg/bttons" unique_id=1523126474]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label3" type="Label" parent="bg/bttons/Button3" unique_id=1414146334]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "SAGE	"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button4" type="Button" parent="bg/bttons" unique_id=1944183437]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label4" type="Label" parent="bg/bttons/Button4" unique_id=1060619397]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "ACOLYTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button5" type="Button" parent="bg/bttons" unique_id=1906266763]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label5" type="Label" parent="bg/bttons/Button5" unique_id=1978960627]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "OUTLANDER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button6" type="Button" parent="bg/bttons" unique_id=1086792440]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label6" type="Label" parent="bg/bttons/Button6" unique_id=1965967233]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "CRIMINAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button7" type="Button" parent="bg/bttons" unique_id=306705418]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label7" type="Label" parent="bg/bttons/Button7" unique_id=289930765]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "GUILD ARTISAN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button8" type="Button" parent="bg/bttons" unique_id=1457296347]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label7" type="Label" parent="bg/bttons/Button8" unique_id=696772326]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "ENTERTAINER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="person" type="Panel" parent="." unique_id=2001080677]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 778.0
+offset_right = 1152.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifeun")
+
+[node name="Label" type="Label" parent="person" unique_id=2054598658]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_top = 6.0
+offset_right = 56.5
+offset_bottom = 29.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_f6gj6")
+theme_override_font_sizes/font_size = 48
+text = "PERSONALITY"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="person" unique_id=1135998420]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 52.0
+offset_right = 20.0
+offset_bottom = 57.0
+grow_horizontal = 2
+
+[node name="bttns2" type="VBoxContainer" parent="person" unique_id=136149641]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -255.0
+offset_right = 171.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_c0onv")
+
+[node name="Button" type="Button" parent="person/bttns2" unique_id=935667373]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label" type="Label" parent="person/bttns2/Button" unique_id=1415700960]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "BRAVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="person/bttns2" unique_id=1567838500]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label2" type="Label" parent="person/bttns2/Button2" unique_id=148739183]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "ANALYTICAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="person/bttns2" unique_id=220209222]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label3" type="Label" parent="person/bttns2/Button3" unique_id=1036096881]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "DECEITFUL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button4" type="Button" parent="person/bttns2" unique_id=1891710362]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label4" type="Label" parent="person/bttns2/Button4" unique_id=1306369358]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "COMPASSIONATE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button5" type="Button" parent="person/bttns2" unique_id=612381965]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label5" type="Label" parent="person/bttns2/Button5" unique_id=550906630]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "HOTHEADED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button6" type="Button" parent="person/bttns2" unique_id=1845904213]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label6" type="Label" parent="person/bttns2/Button6" unique_id=1035539365]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "DISCIPLINED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button7" type="Button" parent="person/bttns2" unique_id=2006784279]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label7" type="Label" parent="person/bttns2/Button7" unique_id=1487099061]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "CUNNING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button8" type="Button" parent="person/bttns2" unique_id=1399438219]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1x3kl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1x3kl")
+
+[node name="Label7" type="Label" parent="person/bttns2/Button8" unique_id=1177841811]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0y03y")
+text = "CURIOUS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=1422895693]
+position = Vector2(577.00006, 341)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_qnoor")
+animation = &"KNIGHT_idle"
+script = ExtResource("6_qnoor")
+
+[node name="Button" type="Button" parent="." unique_id=425941208]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -177.0
+offset_right = 143.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_p8ura")
+theme_override_font_sizes/font_size = 49
+theme_override_styles/normal = SubResource("StyleBoxTexture_r3nmj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r3nmj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r3nmj")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_r3nmj")
+theme_override_styles/focus = SubResource("StyleBoxTexture_r3nmj")
+text = "CONFIRM"
+script = ExtResource("11_e2w6v")
+
+[connection signal="pressed" from="bg/bttons/Button" to="bg/bttons" method="_on_button_pressed" binds= [0]]
+[connection signal="pressed" from="bg/bttons/Button2" to="bg/bttons" method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="bg/bttons/Button3" to="bg/bttons" method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="bg/bttons/Button4" to="bg/bttons" method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="bg/bttons/Button5" to="bg/bttons" method="_on_button_pressed" binds= [4]]
+[connection signal="pressed" from="bg/bttons/Button6" to="bg/bttons" method="_on_button_pressed" binds= [5]]
+[connection signal="pressed" from="bg/bttons/Button7" to="bg/bttons" method="_on_button_pressed" binds= [6]]
+[connection signal="pressed" from="bg/bttons/Button8" to="bg/bttons" method="_on_button_pressed" binds= [7]]
+[connection signal="pressed" from="person/bttns2/Button" to="bg/bttons" method="_on_button_pressed" binds= [0]]
+[connection signal="pressed" from="person/bttns2/Button2" to="bg/bttons" method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="person/bttns2/Button3" to="bg/bttons" method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="person/bttns2/Button4" to="bg/bttons" method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="person/bttns2/Button5" to="bg/bttons" method="_on_button_pressed" binds= [4]]
+[connection signal="pressed" from="person/bttns2/Button6" to="bg/bttons" method="_on_button_pressed" binds= [5]]
+[connection signal="pressed" from="person/bttns2/Button7" to="bg/bttons" method="_on_button_pressed" binds= [6]]
+[connection signal="pressed" from="person/bttns2/Button8" to="bg/bttons" method="_on_button_pressed" binds= [7]]

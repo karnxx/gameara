@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="horizons"
-run/main_scene="uid://cw2l5j6t2e5c4"
+run/main_scene="uid://3femkcdj24t2"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+GameManager="*uid://j3ohyda5qsby"
 
 [dialogic]
 
@@ -25,6 +26,7 @@ directories/dch_directory={
 "character": "res://dialog/chars/character.dch"
 }
 directories/dtl_directory={
+"npc_intro": "res://dialog/timelines/npc_intro.dtl",
 "timeline": "res://dialog/timelines/timeline.dtl"
 }
 layout/style_directory={

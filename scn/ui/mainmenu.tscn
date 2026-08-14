@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://coramsqph7g1w" path="res://scn/ui/v_box_container.gd" id="2_8yg7h"]
 [ext_resource type="FontFile" uid="uid://deaamg15srdxw" path="res://asset/font/Tiny5-Regular.ttf" id="3_8yg7h"]
 [ext_resource type="Script" uid="uid://di2xpmlwmo0ti" path="res://scn/ui/credits.gd" id="4_fsnsr"]
+[ext_resource type="Script" uid="uid://d4dsdbapvej2j" path="res://scn/ui/starts.gd" id="4_lil3c"]
 [ext_resource type="Script" uid="uid://bpiy5tn45dsro" path="res://scn/ui/quit.gd" id="5_7ekmq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ifeun"]
@@ -58,6 +59,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_r3nmj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r3nmj")
 text = "START"
 alignment = 2
+script = ExtResource("4_lil3c")
 
 [node name="credits" type="Button" parent="VBoxContainer" unique_id=874168558]
 layout_mode = 2

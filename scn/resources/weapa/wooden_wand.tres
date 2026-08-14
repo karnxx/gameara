@@ -11,6 +11,7 @@
 script = ExtResource("2_tbab7")
 projectile_scene = ExtResource("1_ccsla")
 projectile_tex = ExtResource("2_n36ef")
+mana_cost = 0.5
 a_range = 22.0
 speed = 10.0
 spell_slots = 1

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://pvu4c3o5qc0m"]
+
+[ext_resource type="Script" uid="uid://b3qlt2n0mgvbv" path="res://cutscene.gd" id="1_r2xuc"]
+
+[node name="cutscene" type="Area2D" unique_id=17828813]
+script = ExtResource("1_r2xuc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

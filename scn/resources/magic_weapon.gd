@@ -10,7 +10,7 @@ var projectile_scene : PackedScene
 var projectile_tex : Texture2D
 
 @export
-var mana_cost := 10
+var mana_cost := 10.0
 
 @export
 var a_range := 600.0

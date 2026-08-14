@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ct6pjuw7q0bb4"]
+
+[ext_resource type="FontFile" uid="uid://cvr7u6avwprnd" path="res://asset/font/Jersey10-Regular.ttf" id="1_dreoj"]
+[ext_resource type="Script" uid="uid://djnjhicfs3t8n" path="res://scn/ui/button.gd" id="2_38gpv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ifeun"]
+
+[node name="credits" type="Control" unique_id=1057855436]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2100278117]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1555807344]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_dreoj")
+theme_override_font_sizes/font_size = 30
+text = "CREDITS
+karnx."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=716541997]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ifeun")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ifeun")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ifeun")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ifeun")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ifeun")
+script = ExtResource("2_38gpv")

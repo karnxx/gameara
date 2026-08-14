@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://3femkcdj24t2"]
+
+[ext_resource type="Texture2D" uid="uid://ch7e3k0453dd7" path="res://asset/0x72_DungeonTilesetII_v1.7/title.png" id="1_26wty"]
+[ext_resource type="FontFile" uid="uid://cvr7u6avwprnd" path="res://asset/font/Jersey10-Regular.ttf" id="2_6k6qu"]
+[ext_resource type="Script" uid="uid://coramsqph7g1w" path="res://scn/ui/v_box_container.gd" id="2_8yg7h"]
+[ext_resource type="FontFile" uid="uid://deaamg15srdxw" path="res://asset/font/Tiny5-Regular.ttf" id="3_8yg7h"]
+[ext_resource type="Script" uid="uid://di2xpmlwmo0ti" path="res://scn/ui/credits.gd" id="4_fsnsr"]
+[ext_resource type="Script" uid="uid://bpiy5tn45dsro" path="res://scn/ui/quit.gd" id="5_7ekmq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ifeun"]
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x3kl"]
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3nmj"]
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bmmkb"]
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lvqvi"]
+content_margin_bottom = 10.0
+
+[node name="mainmenu" type="Control" unique_id=681764498]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=80691667]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_26wty")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1628778829]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 465.0
+offset_right = 167.0
+offset_bottom = 574.0
+script = ExtResource("2_8yg7h")
+
+[node name="starts" type="Button" parent="VBoxContainer" unique_id=292161643]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8yg7h")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ifeun")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1x3kl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_r3nmj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_r3nmj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r3nmj")
+text = "START"
+alignment = 2
+
+[node name="credits" type="Button" parent="VBoxContainer" unique_id=874168558]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8yg7h")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bmmkb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bmmkb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bmmkb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bmmkb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bmmkb")
+text = "CREDITS"
+alignment = 2
+script = ExtResource("4_fsnsr")
+
+[node name="quit" type="Button" parent="VBoxContainer" unique_id=1319606424]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8yg7h")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lvqvi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lvqvi")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lvqvi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lvqvi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lvqvi")
+text = "QUIT"
+alignment = 2
+script = ExtResource("5_7ekmq")
+
+[node name="Label" type="Label" parent="." unique_id=1907483544]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 310.0
+offset_right = 234.0
+offset_bottom = 423.0
+theme_override_fonts/font = ExtResource("2_6k6qu")
+theme_override_font_sizes/font_size = 100
+text = "rogic."
+
+[connection signal="focus_entered" from="VBoxContainer/starts" to="VBoxContainer" method="_on_starts_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/starts" to="VBoxContainer" method="_on_starts_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/starts" to="VBoxContainer" method="_on_starts_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/starts" to="VBoxContainer" method="_on_starts_mouse_exited"]
+[connection signal="focus_entered" from="VBoxContainer/credits" to="VBoxContainer" method="_on_credits_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/credits" to="VBoxContainer" method="_on_credits_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/credits" to="VBoxContainer" method="_on_credits_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/credits" to="VBoxContainer" method="_on_credits_mouse_exited"]
+[connection signal="focus_entered" from="VBoxContainer/quit" to="VBoxContainer" method="_on_quit_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/quit" to="VBoxContainer" method="_on_quit_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/quit" to="VBoxContainer" method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/quit" to="VBoxContainer" method="_on_quit_mouse_exited"]

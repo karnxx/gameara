@@ -1,0 +1,529 @@
+[gd_scene format=3 uid="uid://c16qkta105t7h"]
+
+[ext_resource type="Texture2D" uid="uid://bm0rc6v21td5t" path="res://asset/0x72_DungeonTilesetII_v1.7/liight.png" id="1_kxfs5"]
+[ext_resource type="Texture2D" uid="uid://d1byiiw7vg3e" path="res://asset/0x72_DungeonTilesetII_v1.7/plrsprites.png" id="1_qnnuj"]
+[ext_resource type="Texture2D" uid="uid://cs5a15vc1ka50" path="res://asset/0x72_DungeonTilesetII_v1.7/lightdown.png" id="2_5a2r2"]
+[ext_resource type="FontFile" uid="uid://deaamg15srdxw" path="res://asset/font/Tiny5-Regular.ttf" id="4_5a2r2"]
+[ext_resource type="Script" uid="uid://ddg0iep8wkqc6" path="res://scn/ui/knight.gd" id="5_b6lhq"]
+[ext_resource type="Script" uid="uid://cunknpva77rst" path="res://scn/ui/wizard.gd" id="6_b6lhq"]
+[ext_resource type="Texture2D" uid="uid://7qjbgccmiyss" path="res://asset/0x72_DungeonTilesetII_v1.7/classpanel.png" id="7_5hvku"]
+[ext_resource type="FontFile" uid="uid://cvr7u6avwprnd" path="res://asset/font/Jersey10-Regular.ttf" id="8_p8v7j"]
+[ext_resource type="Texture2D" uid="uid://botfgu6burgn1" path="res://asset/0x72_DungeonTilesetII_v1.7/frames/weapon_regular_sword.png" id="9_q6bfl"]
+[ext_resource type="Texture2D" uid="uid://cavsahe70tfdd" path="res://asset/0x72_DungeonTilesetII_v1.7/frames/weapon_bow_2.png" id="10_anjyn"]
+[ext_resource type="Texture2D" uid="uid://codq22h3tyv86" path="res://asset/0x72_DungeonTilesetII_v1.7/woodenwand.png" id="11_anjyn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c00y3"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rujku"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(16, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f731k"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvna0"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(48, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbtrw"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(64, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtclr"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(80, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab04o"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(96, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acseb"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(112, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1grll"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(0, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc42e"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(16, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn2q6"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(32, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrla3"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(48, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkjqq"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(112, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfkxb"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(96, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efd7k"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(80, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd8k8"]
+atlas = ExtResource("1_qnnuj")
+region = Rect2(64, 160, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ybbx7"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_c00y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rujku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f731k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvna0")
+}],
+"loop": 1,
+"name": &"KNIGHT_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbtrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtclr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab04o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acseb")
+}],
+"loop": 1,
+"name": &"KNIGHT_run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_1grll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc42e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn2q6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrla3")
+}],
+"loop": 1,
+"name": &"WIZARD_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkjqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfkxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efd7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd8k8")
+}],
+"loop": 1,
+"name": &"WIZARD_run",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b6lhq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifeun"]
+texture = ExtResource("7_5hvku")
+
+[node name="class_choose" type="Control" unique_id=794557883]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1459874987]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="knight" type="TextureRect" parent="ColorRect" unique_id=1060573208]
+visible = false
+layout_mode = 0
+offset_left = 198.0
+offset_top = -5.0
+offset_right = 443.0
+offset_bottom = 413.0
+texture = ExtResource("1_kxfs5")
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/knight" unique_id=716687692]
+layout_mode = 0
+offset_top = 381.0
+offset_right = 244.0
+offset_bottom = 454.0
+texture = ExtResource("2_5a2r2")
+
+[node name="wiz" type="TextureRect" parent="ColorRect" unique_id=262787033]
+visible = false
+layout_mode = 0
+offset_left = 689.0
+offset_top = -5.0
+offset_right = 934.0
+offset_bottom = 413.0
+texture = ExtResource("1_kxfs5")
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/wiz" unique_id=983906519]
+layout_mode = 0
+offset_top = 381.0
+offset_right = 244.0
+offset_bottom = 454.0
+texture = ExtResource("2_5a2r2")
+
+[node name="knight2" type="AnimatedSprite2D" parent="." unique_id=356009140]
+position = Vector2(321, 360)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_ybbx7")
+animation = &"KNIGHT_idle"
+autoplay = "KNIGHT_idle"
+
+[node name="wizard2" type="AnimatedSprite2D" parent="." unique_id=1839919121]
+position = Vector2(818, 360.00003)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_ybbx7")
+animation = &"WIZARD_idle"
+autoplay = "WIZARD_idle"
+flip_h = true
+
+[node name="Label" type="Label" parent="." unique_id=133544442]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = 6.5
+offset_right = 56.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5a2r2")
+theme_override_font_sizes/font_size = 30
+text = "CHOOSE"
+
+[node name="knight" type="Button" parent="." unique_id=1673066357]
+layout_mode = 0
+offset_left = -21.0
+offset_top = 4.0
+offset_right = 409.0
+offset_bottom = 647.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b6lhq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b6lhq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b6lhq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b6lhq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b6lhq")
+script = ExtResource("5_b6lhq")
+
+[node name="wizard" type="Button" parent="." unique_id=1372554714]
+layout_mode = 0
+offset_left = 726.0
+offset_top = 4.0
+offset_right = 1456.0
+offset_bottom = 647.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b6lhq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b6lhq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b6lhq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b6lhq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b6lhq")
+script = ExtResource("6_b6lhq")
+
+[node name="knight3" type="Panel" parent="." unique_id=356195604]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_right = 1.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifeun")
+
+[node name="Label" type="Label" parent="knight3" unique_id=616087947]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.5
+offset_top = 4.0
+offset_right = 87.5
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_p8v7j")
+theme_override_font_sizes/font_size = 48
+text = "THE KNIGHT"
+
+[node name="Label2" type="Label" parent="knight3" unique_id=1309897945]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -269.0
+offset_right = -12.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5a2r2")
+theme_override_font_sizes/font_size = 22
+text = "STR
+DEX
+INT
+CHA
+"
+
+[node name="Label3" type="Label" parent="knight3" unique_id=809848709]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -269.0
+offset_right = -12.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5a2r2")
+theme_override_font_sizes/font_size = 22
+text = "+2
++1
++0
++0
+
+"
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="knight3" unique_id=891348565]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -144.0
+offset_right = -12.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5a2r2")
+theme_override_font_sizes/font_size = 22
+text = "A resilient melee fighter built around strength and close-range combat. Excels with heavy weapons and can withstand more punishment than other classes."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ColorRect2" type="ColorRect" parent="knight3" unique_id=16653639]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 51.0
+offset_right = 239.0
+offset_bottom = 54.0
+
+[node name="ColorRect3" type="ColorRect" parent="knight3" unique_id=464656308]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 172.0
+offset_right = 239.0
+offset_bottom = 175.0
+
+[node name="sword" type="TextureButton" parent="knight3" unique_id=710285251]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = -193.0
+offset_right = 98.0
+offset_bottom = -31.0
+grow_vertical = 0
+texture_normal = ExtResource("9_q6bfl")
+texture_pressed = ExtResource("9_q6bfl")
+texture_hover = ExtResource("9_q6bfl")
+texture_disabled = ExtResource("9_q6bfl")
+texture_focused = ExtResource("9_q6bfl")
+stretch_mode = 0
+
+[node name="bow" type="TextureButton" parent="knight3" unique_id=91705833]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -193.0
+offset_right = -54.0
+offset_bottom = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("10_anjyn")
+texture_pressed = ExtResource("10_anjyn")
+texture_hover = ExtResource("10_anjyn")
+texture_disabled = ExtResource("10_anjyn")
+texture_focused = ExtResource("10_anjyn")
+stretch_mode = 0
+
+[node name="wizard3" type="Panel" parent="." unique_id=792834454]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 273.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifeun")
+
+[node name="Label" type="Label" parent="wizard3" unique_id=1076566130]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.5
+offset_top = 4.0
+offset_right = 87.5
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_p8v7j")
+theme_override_font_sizes/font_size = 48
+text = "THE WIZARD"
+
+[node name="Label2" type="Label" parent="wizard3" unique_id=503783361]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -269.0
+offset_right = -12.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5a2r2")
+theme_override_font_sizes/font_size = 22
+text = "STR
+DEX
+INT
+CHA
+"
+
+[node name="Label3" type="Label" parent="wizard3" unique_id=729062666]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -269.0
+offset_right = -12.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5a2r2")
+theme_override_font_sizes/font_size = 22
+text = "+0
++1
++2
++0
+
+"
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="wizard3" unique_id=1058975104]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -144.0
+offset_right = -12.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5a2r2")
+theme_override_font_sizes/font_size = 22
+text = "A powerful magic-user focused on intelligence and ranged spells. Excels at dealing damage from a distance and using a variety of magical abilities."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ColorRect2" type="ColorRect" parent="wizard3" unique_id=810510158]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 51.0
+offset_right = 239.0
+offset_bottom = 54.0
+
+[node name="ColorRect3" type="ColorRect" parent="wizard3" unique_id=1539427958]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 172.0
+offset_right = 239.0
+offset_bottom = 175.0
+
+[node name="wand" type="TextureButton" parent="wizard3" unique_id=275303938]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 110.0
+offset_top = -193.0
+offset_right = 169.0
+offset_bottom = -31.0
+grow_vertical = 0
+texture_normal = ExtResource("11_anjyn")
+texture_pressed = ExtResource("11_anjyn")
+texture_hover = ExtResource("11_anjyn")
+texture_disabled = ExtResource("11_anjyn")
+texture_focused = ExtResource("11_anjyn")
+stretch_mode = 0
+
+[connection signal="mouse_entered" from="knight" to="knight" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="knight" to="knight" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="wizard" to="wizard" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="wizard" to="wizard" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="knight3" to="knight" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="knight3" to="knight" method="_on_mouse_exited"]
+[connection signal="mouse_exited" from="knight3" to="knight" method="_on_knight_3_mouse_exited"]
+[connection signal="mouse_entered" from="knight3/sword" to="knight" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="knight3/sword" to="knight" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="knight3/bow" to="knight" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="knight3/bow" to="knight" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="wizard3" to="wizard" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="wizard3" to="wizard" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="wizard3/wand" to="wizard" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="wizard3/wand" to="wizard" method="_on_mouse_exited"]

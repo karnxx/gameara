@@ -5,12 +5,10 @@ extends CharacterBody2D
 # =========================
 
 var bspd = 230
-var bdex = 10
-var bstr = 10
-var bintl = 10
-var bcha = 10
-
-
+var bdex = 5
+var bstr = 5
+var bintl = 5
+var bcha = 5
 
 # =========================
 # FLAT BONUSES
@@ -185,12 +183,12 @@ var gold = 0
 
 func _ready():
 	apply_class(ClassType.KNIGHT)
+	apply_bg(BackgroundType.SOLDIER)
 	equip_weapon(preload("uid://x4elk74nncwj"))
 	hp = maxhp
 	add_spell(preload("uid://cvw6fms070gfk"))
 
 func _physics_process(delta):
-	print(state)
 	use_spell()
 	interact()
 	movment()
@@ -218,10 +216,10 @@ func apply_class(classs):
 	mcha = 1.0
 	match plr_class:
 		ClassType.KNIGHT:
-			fstr += 4
-			fdex += 2
+			fstr += 2
+			fdex += 1
 		ClassType.WIZARD:
-			fintl += 5
+			fintl += 2
 			fdex += 1
 	apply_stats()
 

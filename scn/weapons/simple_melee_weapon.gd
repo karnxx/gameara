@@ -74,4 +74,5 @@ func scaling_value(rank: Weapon.ScalingRank) -> float:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("hittable") and (plr.state != plr.State.DIALOGUE) and plr.state != plr.State.BUSY:
+		
 		body.get_dmged(final_dmg, plr)
